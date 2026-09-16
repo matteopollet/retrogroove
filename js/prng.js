@@ -1,3 +1,12 @@
+// RETROGROOVE — lecteur vinyle « album intégral »
+// Copyright (C) 2026  Mattéo Pollet
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// This program is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the
+// Free Software Foundation, either version 3 of the License, or (at your
+// option) any later version.
+
 // Générateur pseudo-aléatoire déterministe — chaque album sonne pareil à chaque écoute.
 export function mulberry32(seed) {
   let a = seed >>> 0;

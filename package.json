@@ -1,1 +1,20 @@
-{"name":"retrogroove","type":"module","private":true,"dependencies":{"puppeteer-core":"^25.11.0"}}
+{
+  "name": "retrogroove",
+  "version": "1.0.0",
+  "description": "Lecteur vinyle « album intégral » — musique synthétisée en direct via Web Audio API.",
+  "author": "Mattéo Pollet",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteopollet/retroplayer.git"
+  },
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 8123",
+    "test": "node test/e2e.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.11.0"
+  }
+}
