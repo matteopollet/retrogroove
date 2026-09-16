@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RETROGROOVE — le disque se déguste entier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23111'/><circle cx='16' cy='16' r='5' fill='%23ff7847'/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="crt"></div>
+<div id="vignette"></div>
+
+<!-- Écran de démarrage -->
+<div id="boot">
+  <div class="boot-inner">
+    <h1 class="logo">RETRO<span>GROOVE</span></h1>
+    <p class="tagline">33⅓ tours · aucun titre ne se skippe</p>
+    <button id="boot-btn">ALLUMER LA PLATINE</button>
+    <p class="boot-hint">ici, l'album est un tout. pause&nbsp;: oui. avance rapide&nbsp;: jamais.</p>
+  </div>
+</div>
+
+<header id="topbar" hidden>
+  <div class="brand" id="brand">
+    <span class="brand-dot"></span>
+    RETROGROOVE <em>33⅓</em>
+  </div>
+  <div class="top-right">
+    <span class="led" id="power-led"></span>
+    <span class="mono" id="clock">--:--</span>
+  </div>
+</header>
+
+<main>
+  <!-- Bibliothèque -->
+  <section id="library-view" hidden>
+    <h2 class="section-title">LE BAC À VINYLES</h2>
+    <p class="rule">Règle de la maison — on pose l'aiguille, on écoute l'album <strong>en entier</strong>.<br>
+    Pause autorisée. Quitter ou changer de disque&nbsp;? On repart au début, comme au premier soir.</p>
+    <div class="crate" id="crate"></div>
+  </section>
+
+  <!-- Platine -->
+  <section id="player-view" hidden>
+    <div class="player-layout">
+
+      <div class="turntable">
+        <div class="plinth">
+          <div class="platter">
+            <div class="record" id="record">
+              <div class="grooves"></div>
+              <div class="sheen"></div>
+              <div class="label" id="record-label"><span id="label-title"></span></div>
+              <div class="spindle"></div>
+            </div>
+          </div>
+          <div class="tonearm" id="tonearm">
+            <div class="arm-base"></div>
+            <div class="arm-shaft"><div class="headshell"></div></div>
+          </div>
+          <div class="plinth-controls">
+            <div class="speed-badge mono">33⅓</div>
+            <div class="led on" id="motor-led"></div>
+          </div>
+        </div>
+        <div class="under-deck">
+          <canvas id="vu" width="220" height="90"></canvas>
+          <div class="time mono"><span id="elapsed">0:00</span> / <span id="total">0:00</span></div>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="now">
+          <canvas class="mini-cover" id="mini-cover" width="240" height="240"></canvas>
+          <div class="now-meta">
+            <h3 id="np-title"></h3>
+            <p id="np-artist"></p>
+            <div class="badges">
+              <span class="badge side mono" id="side-badge">FACE A</span>
+              <span class="badge mono" id="np-year"></span>
+            </div>
+          </div>
+        </div>
+
+        <ol class="tracklist" id="tracklist"></ol>
+
+        <div class="transport">
+          <button class="tbtn big" id="btn-pause" title="Pause — l'aiguille se lève, le disque attend">
+            <span id="pause-icon">❚❚</span>
+          </button>
+          <button class="tbtn" id="btn-eject" title="Éjecter — attention, on repartira du début">⏏ ÉJECTER</button>
+        </div>
+        <p class="fine-print">avance rapide inexistante · quitter = repartir au début du sillon</p>
+      </div>
+    </div>
+
+    <!-- Interlude face B -->
+    <div id="flip-overlay" hidden>
+      <div class="flip-card">
+        <div class="flip-disc"></div>
+        <h2>FIN DE LA FACE A</h2>
+        <p>Le sillon est fini. Comme en 1978&nbsp;: il faut retourner le disque à la main.</p>
+        <button class="tbtn big accent" id="btn-flip">↻ RETOURNER LE DISQUE — FACE B</button>
+      </div>
+    </div>
+
+    <!-- Fin de l'album -->
+    <div id="end-overlay" hidden>
+      <div class="flip-card">
+        <h2>ALBUM TERMINÉ</h2>
+        <p id="end-msg">L'aiguille tourne dans le sillon de sortie. Le silence, ça fait partie de l'œuvre aussi.</p>
+        <button class="tbtn big accent" id="btn-replay">↺ RÉÉCOUTER DEPUIS LE DÉBUT</button>
+        <button class="tbtn" id="btn-home2">⏏ CHANGER DE DISQUE</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="mono" hidden></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
